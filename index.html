@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Lipids</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fbf6d3;--ink:#233f14;--yellow:#f4d03f;--g1:#2f5d1e;--g2:#6a9a2c;--card:#fffbe3;--hero:#f4d03f;--hero-ink:#2f5d1e;--band:#2f5d1e;--band-ink:#fbf6d3;--drop:#6a9a2c;--focus:#2f5d1e;--on-g:#fbf6d3;--tabbg:#f4d03f;--tabink:#233f14;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);color-scheme:light}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#14200d;--ink:#f1ebbd;--card:#1d2f12;--hero:#1f3314;--hero-ink:#f4d03f;--band:#2f5d1e;--band-ink:#fbf6d3;--drop:#8bbf3a;--focus:#f4d03f;--g1:#8bbf3a;--g2:#6a9a2c;--on-g:#14200d;--tabbg:#2a4219;--tabink:#f4d03f;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#14200d;--ink:#f1ebbd;--card:#1d2f12;--hero:#1f3314;--hero-ink:#f4d03f;--band:#2f5d1e;--band-ink:#fbf6d3;--drop:#8bbf3a;--focus:#f4d03f;--g1:#8bbf3a;--g2:#6a9a2c;--on-g:#14200d;--tabbg:#2a4219;--tabink:#f4d03f;color-scheme:dark}
+html{scroll-padding-top:env(safe-area-inset-top,0px);background:var(--bg)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 1.125rem/1.65 "Source Serif 4",Georgia,serif}
+h1,h2,h3{font-family:"Bricolage Grotesque","Trebuchet MS",sans-serif;line-height:1.1;margin:0}
+.wrap{max-width:960px;margin:0 auto;padding:0 20px}
+p{margin:0 0 1em;max-width:62ch}
+:focus-visible{outline:3px solid var(--focus);outline-offset:3px;border-radius:4px}
+/* hero */
+.hero{position:relative;background:var(--hero);color:var(--hero-ink);overflow:hidden;padding:56px 0 0}
+.hero h1{font-size:clamp(3.6rem,15vw,7.5rem);font-weight:800;letter-spacing:-.03em}
+.hero .lead{font-size:clamp(1.15rem,3.6vw,1.45rem);max-width:30ch;margin:14px 0 0;position:relative}
+.hero .wrap{position:relative;z-index:2}
+.drop{position:absolute;fill:var(--drop);opacity:.85;animation:float 6s ease-in-out infinite}
+@keyframes float{50%{transform:translateY(-14px)}}
+.wave{display:block;width:100%;height:auto;margin-top:36px;position:relative;z-index:1}
+/* sections */
+section{padding:48px 0}
+h2{font-size:clamp(1.9rem,6vw,2.6rem);font-weight:800;margin-bottom:16px;color:var(--g1)}
+.card{background:var(--card);border:2px solid var(--g2);border-radius:18px;padding:20px}
+[role=tablist]{display:flex;flex-wrap:wrap;gap:8px;margin:24px 0 12px}
+button{font:600 1rem "Bricolage Grotesque",sans-serif;cursor:pointer;border:2px solid var(--g1);border-radius:999px;padding:10px 18px;min-height:44px;background:var(--tabbg);color:var(--tabink)}
+button[aria-selected=true],button[aria-pressed=true]{background:var(--g1);color:var(--on-g)}
+.panel{display:grid;grid-template-columns:minmax(0,260px) 1fr;gap:24px;align-items:center}
+.panel[hidden]{display:none}
+.panel svg{width:100%;height:auto}
+.panel h3{font-size:1.5rem;margin-bottom:8px}
+ul{margin:0;padding-left:1.2em}li{margin:.3em 0}
+.stroke{stroke:var(--ink);fill:none;stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
+.tail{stroke:var(--g2);fill:none;stroke-width:4;stroke-linecap:round;stroke-linejoin:round}
+.yel{fill:var(--yellow);stroke:var(--ink);stroke-width:2.5}
+svg text{fill:var(--ink);font:12px "Bricolage Grotesque",sans-serif}
+/* band */
+.band{background:var(--band);color:var(--band-ink)}
+.band h2{color:var(--yellow)}
+.items{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px 32px;margin-top:24px}
+.item{border-left:5px solid var(--yellow);padding-left:16px}
+.item h3{font-size:1.3rem;margin-bottom:4px}
+.item p{margin:0}
+/* chain */
+.toggle{display:flex;gap:8px;margin:20px 0}
+#chain{width:100%;max-width:520px;height:auto;display:block;margin:8px 0}
+#why{min-height:4.5em;margin:0}
+footer{padding:24px 0 40px;font-size:.95rem;opacity:.85}
+@media (max-width:640px){.panel{grid-template-columns:1fr}.panel svg{max-width:280px}}
+@media (prefers-reduced-motion:reduce){.drop{animation:none}*{scroll-behavior:auto!important;transition:none!important}}
+</style>
+</head>
+<body>
+<header class="hero">
+  <svg class="drop" style="left:62%;top:14%;width:26px;animation-delay:-1s" viewBox="0 0 20 30" aria-hidden="true"><path d="M10 0C10 0 0 13 0 20a10 10 0 0020 0C20 13 10 0 10 0z"/></svg>
+  <svg class="drop" style="left:78%;top:34%;width:40px;animation-delay:-3s" viewBox="0 0 20 30" aria-hidden="true"><path d="M10 0C10 0 0 13 0 20a10 10 0 0020 0C20 13 10 0 10 0z"/></svg>
+  <svg class="drop" style="left:90%;top:12%;width:18px;animation-delay:-2s" viewBox="0 0 20 30" aria-hidden="true"><path d="M10 0C10 0 0 13 0 20a10 10 0 0020 0C20 13 10 0 10 0z"/></svg>
+  <svg class="drop" style="left:48%;top:46%;width:20px;animation-delay:-4s" viewBox="0 0 20 30" aria-hidden="true"><path d="M10 0C10 0 0 13 0 20a10 10 0 0020 0C20 13 10 0 10 0z"/></svg>
+  <svg class="drop" style="left:68%;top:58%;width:32px;animation-delay:-5s" viewBox="0 0 20 30" aria-hidden="true"><path d="M10 0C10 0 0 13 0 20a10 10 0 0020 0C20 13 10 0 10 0z"/></svg>
+  <div class="wrap">
+    <h1>Lipids</h1>
+    <p class="lead">Lipids are the fats, oils and waxes in your food and your body.</p>
+  </div>
+  <svg class="wave" viewBox="0 0 960 90" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M0 40C120 5 240 5 360 40s240 35 360 0 180-25 240-10V90H0z" fill="#6a9a2c"/>
+    <path d="M0 62C140 30 260 30 400 62s230 22 360-4 140-14 200-2V90H0z" fill="#2f5d1e"/>
+  </svg>
+</header>
+
+<main>
+<section>
+  <div class="wrap">
+    <h2>What are lipids?</h2>
+    <p>Lipids are fats, oils and waxes. They don’t mix with water.</p>
+    <p>Think of oil in salad dressing. It floats on top and won’t blend with the water.</p>
+    <p>Scientists call this hydrophobic (it doesn’t mix with water).</p>
+    <p>You already know some lipids. Butter and cooking oil are lipids. So is the fat in your body.</p>
+    <h2 style="margin-top:36px">The four types of lipids</h2>
+    <p>Lipids come in four main types. Tap a tab to meet each one.</p>
+    <div class="card">
+      <div role="tablist" aria-label="Types of lipid">
+        <button role="tab" id="t0" aria-selected="true" aria-controls="p0">Triglycerides</button>
+        <button role="tab" id="t1" aria-selected="false" aria-controls="p1" tabindex="-1">Phospholipids</button>
+        <button role="tab" id="t2" aria-selected="false" aria-controls="p2" tabindex="-1">Steroids</button>
+        <button role="tab" id="t3" aria-selected="false" aria-controls="p3" tabindex="-1">Waxes</button>
+      </div>
+
+      <div class="panel" role="tabpanel" id="p0" aria-labelledby="t0" tabindex="0">
+        <svg viewBox="0 0 240 150" role="img" aria-label="A small backbone with three fat chains attached">
+          <path class="stroke" d="M30 35V115"/>
+          <circle class="yel" cx="30" cy="35" r="7"/><circle class="yel" cx="30" cy="75" r="7"/><circle class="yel" cx="30" cy="115" r="7"/>
+          <path id="zz" class="tail" d="M38 35l16 10 16-10 16 10 16-10 16 10 16-10 16 10 16-10"/>
+          <use href="#zz" y="40"/><use href="#zz" y="80"/>
+          <text x="8" y="144">backbone (glycerol)</text><text x="140" y="144">3 fat chains</text>
+        </svg>
+        <div>
+          <h3>Triglycerides: the fat we eat and store</h3>
+          <p>Triglycerides are the fat in your food. Your body also stores them as body fat for later energy.</p>
+          <ul><li>Three fat chains hang off one small backbone.</li><li>Butter and cooking oil are mostly triglycerides.</li><li>Your body burns them when it needs energy.</li></ul>
+        </div>
+      </div>
+
+      <div class="panel" role="tabpanel" id="p1" aria-labelledby="t1" tabindex="0" hidden>
+        <svg viewBox="0 0 240 150" role="img" aria-label="A round head with two wavy tails">
+          <path class="tail" d="M95 54q-8 12 0 24t0 24t0 24"/><path class="tail" d="M115 54q-8 12 0 24t0 24t0 24"/>
+          <circle class="yel" cx="105" cy="36" r="22"/><text x="99" y="41">P</text>
+          <text x="140" y="40">head: likes water</text><text x="140" y="118">tails: avoid water</text>
+        </svg>
+        <div>
+          <h3>Phospholipids: the “skin” around every cell</h3>
+          <p>Every cell in your body is wrapped in a thin skin. That skin is made of phospholipids.</p>
+          <ul><li>Each one has a head that likes water.</li><li>Each one also has two tails that avoid water.</li><li>They line up in a double layer, with the tails tucked inside.</li></ul>
+        </div>
+      </div>
+
+      <div class="panel" role="tabpanel" id="p2" aria-labelledby="t2" tabindex="0" hidden>
+        <svg viewBox="0 0 240 150" role="img" aria-label="Four joined rings, the core of a steroid">
+          <g transform="translate(20 -10)" class="stroke">
+            <polygon points="50,80 76,95 76,125 50,140 24,125 24,95" fill="var(--yellow)"/>
+            <polygon points="102,80 128,95 128,125 102,140 76,125 76,95" fill="var(--yellow)"/>
+            <polygon points="128,35 154,50 154,80 128,95 102,80 102,50" fill="var(--yellow)"/>
+            <polygon points="154,50 178,42 192,65 178,88 154,80" fill="var(--yellow)"/>
+            <polyline points="178,42 184,20 198,10"/>
+          </g>
+          <text x="8" y="146">four joined rings</text>
+        </svg>
+        <div>
+          <h3>Steroids: cholesterol and some hormones</h3>
+          <p>Steroids look different from other lipids. They are built from four joined rings, not long chains.</p>
+          <ul><li>Cholesterol is one well-known kind of steroid.</li><li>Your body uses it to make some hormones (chemical messengers).</li><li>It also helps keep the skin around cells flexible.</li></ul>
+        </div>
+      </div>
+
+      <div class="panel" role="tabpanel" id="p3" aria-labelledby="t3" tabindex="0" hidden>
+        <svg viewBox="0 0 240 150" role="img" aria-label="Water beads sitting on a waxy layer">
+          <ellipse cx="70" cy="84" rx="16" ry="12" fill="var(--card)" stroke="var(--ink)" stroke-width="2.5"/>
+          <ellipse cx="130" cy="88" rx="11" ry="8" fill="var(--card)" stroke="var(--ink)" stroke-width="2.5"/>
+          <ellipse cx="180" cy="85" rx="14" ry="10" fill="var(--card)" stroke="var(--ink)" stroke-width="2.5"/>
+          <rect x="20" y="96" width="200" height="34" rx="10" fill="var(--g2)"/>
+          <path class="stroke" style="stroke:#fbf6d3" d="M30 106l12 8 12-8 12 8 12-8 12 8 12-8 12 8 12-8 12 8 12-8 12 8 12-8 12 8 12-8"/>
+          <text x="20" y="146">a waterproof layer</text>
+        </svg>
+        <div>
+          <h3>Waxes: waterproof coatings</h3>
+          <p>Waxes make a waterproof coating, like the shiny layer on a leaf. Your ears make a wax too, called earwax.</p>
+          <ul><li>Water beads up and rolls off a waxy surface.</li><li>Bees build honeycomb from beeswax.</li><li>Earwax is a waxy mix that helps protect your ears.</li></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap">
+    <h2>What lipids do for you</h2>
+    <div class="items">
+      <div class="item"><h3>Store energy</h3><p>Fat is your body’s spare fuel tank. Gram for gram, it holds more than twice the energy of carbs or protein.</p></div>
+      <div class="item"><h3>Protect organs</h3><p>Body fat cushions your organs, like bubble wrap around a gift.</p></div>
+      <div class="item"><h3>Keep you warm</h3><p>A layer of fat under your skin holds in body heat, like a cozy blanket.</p></div>
+      <div class="item"><h3>Build cells</h3><p>Lipids form the skin around every cell. It keeps each cell’s insides in place.</p></div>
+      <div class="item"><h3>Help you use vitamins A, D, E and K</h3><p>These vitamins dissolve in fat, not water. The fat you eat helps your body take them in.</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>Saturated vs. unsaturated fat</h2>
+    <p>Fats are made of long chains. The shape of the chain changes how the fat behaves.</p>
+    <div class="toggle" role="group" aria-label="Type of fat chain">
+      <button id="bs" aria-pressed="true">Saturated</button>
+      <button id="bu" aria-pressed="false">Unsaturated</button>
+    </div>
+    <svg id="chain" viewBox="0 0 360 210" role="img" aria-label="Fat chain"></svg>
+    <p id="why" aria-live="polite"></p>
+  </div>
+</section>
+<section>
+  <div class="wrap">
+    <h2>Quick recap</h2>
+    <ul>
+      <li>Lipids are fats, oils and waxes. They don’t mix with water.</li>
+      <li>There are four types: triglycerides, phospholipids, steroids and waxes.</li>
+      <li>Lipids store energy, cushion organs, keep you warm and build cells.</li>
+      <li>Straight chains stack and make solid fats. Bent chains make liquid oils.</li>
+    </ul>
+  </div>
+</section>
+</main>
+
+<footer><div class="wrap">This page is for learning, not medical advice.</div></footer>
+
+<script>
+(function(){
+  var tabs=[].slice.call(document.querySelectorAll('[role=tab]'));
+  function pick(i,focus){
+    tabs.forEach(function(t,j){
+      var on=i===j;
+      t.setAttribute('aria-selected',on);t.tabIndex=on?0:-1;
+      document.getElementById(t.getAttribute('aria-controls')).hidden=!on;
+    });
+    if(focus)tabs[i].focus();
+  }
+  tabs.forEach(function(t,i){
+    t.addEventListener('click',function(){pick(i)});
+    t.addEventListener('keydown',function(e){
+      var n=tabs.length,k=e.key;
+      if(k==='ArrowRight'){pick((i+1)%n,1);e.preventDefault()}
+      else if(k==='ArrowLeft'){pick((i+n-1)%n,1);e.preventDefault()}
+      else if(k==='Home'){pick(0,1);e.preventDefault()}
+      else if(k==='End'){pick(n-1,1);e.preventDefault()}
+    });
+  });
+
+  var svg=document.getElementById('chain'),why=document.getElementById('why');
+  var bs=document.getElementById('bs'),bu=document.getElementById('bu');
+  var text={
+    s:'Straight chains stack tightly, like pencils in a box. That’s why saturated fats, like butter, are usually solid.',
+    u:'A double bond (two links between the same two carbons) bends the chain. Bent chains can’t stack tightly, so unsaturated fats, like olive oil, are usually liquid.'
+  };
+  function draw(u){
+    var L=28,x=50,y=60,p=[[x,y]],i,a;
+    for(i=0;i<11;i++){
+      a=((i%2?-30:30)+(u&&i>=9?50:0))*Math.PI/180;
+      x+=L*Math.cos(a);y+=L*Math.sin(a);p.push([x,y]);
+    }
+    var d='M'+p.map(function(q){return q[0].toFixed(1)+' '+q[1].toFixed(1)}).join('L');
+    var s='<path class="tail" d="'+d+'"/>';
+    p.forEach(function(q){s+='<circle class="yel" cx="'+q[0].toFixed(1)+'" cy="'+q[1].toFixed(1)+'" r="4.5"/>'});
+    if(u){
+      var A=p[8],B=p[9],dx=B[0]-A[0],dy=B[1]-A[1],m=Math.hypot(dx,dy),nx=-dy/m*6,ny=dx/m*6;
+      s+='<path class="tail" style="stroke:var(--ink);stroke-width:2.5" d="M'+(A[0]+nx).toFixed(1)+' '+(A[1]+ny).toFixed(1)+'L'+(B[0]+nx).toFixed(1)+' '+(B[1]+ny).toFixed(1)+'"/>';
+      s+='<text x="'+((A[0]+B[0])/2).toFixed(1)+'" y="'+(A[1]-18).toFixed(1)+'" text-anchor="middle">double bond (the bend)</text>';
+    }
+    s+='<text x="40" y="'+(p[0][1]+4)+'" text-anchor="end">COOH</text>';
+    s+='<text x="'+(x+12).toFixed(1)+'" y="'+(y+4).toFixed(1)+'">CH\u2083</text>';
+    svg.innerHTML=s;
+    svg.setAttribute('aria-label',u?'Bent fat chain, the unsaturated kind':'Straight fat chain, the saturated kind');
+    why.textContent=text[u?'u':'s'];
+    bs.setAttribute('aria-pressed',!u);bu.setAttribute('aria-pressed',!!u);
+  }
+  bs.addEventListener('click',function(){draw(0)});
+  bu.addEventListener('click',function(){draw(1)});
+  draw(0);
+})();
+</script>
+</body>
+</html>
